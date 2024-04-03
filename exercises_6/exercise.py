@@ -2,6 +2,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.colors as colors
 import unittest
+import requests
+from bs4 import BeautifulSoup
+
+
 
 def convert_time(time):
     time = time[:10]
@@ -75,3 +79,5 @@ if __name__ == '__main__':
     unittest.main(argv=['first-arg-is-ignored'], exit=False)
     plot_case_death_with_time(case, county)
     plot_case_death_with_time(death, county)
+   
+
