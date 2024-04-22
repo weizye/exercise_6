@@ -34,24 +34,23 @@ print(death)
 
 # case&death graph
 def plot_case_death_with_time(df, county):
-    x = [''] * len(df['DATE'])
-    x[0] = df['DATE'].tolist()[0]
-    x[len(x) - 1] = df['DATE'].tolist()[len(x) - 1]
+    x = df['DATE'].tolist()
+
+    fig, ax = plt.subplots(figsize=(12, 6))  # Adjust the figsize to set the graph size
 
     i = 0
-    fig = plt.figure()
-    ax = plt.subplot(111)
     for c in county:
         if c in df.columns:
             hsv = ((1 / 25) * i, .8, .8)
             color = colors.hsv_to_rgb(hsv)
-            ax.plot(df[c].tolist(), label=c, c=color)
+            ax.plot(x, df[c].tolist(), label=c, c=color)
             i += 1
 
     plt.xticks(rotation=90)
+    ax.xaxis.set_major_locator(plt.MaxNLocator(10))  # Adjust the number of x-axis ticks
     ax.legend(loc='upper center', bbox_to_anchor=(1.05, 1), ncol=3, fancybox=True, shadow=True)
-    plt.xlabel('DATE between {} and {}'.format(x[0], x[len(x) - 1]))
-    plt.ylabel('number')
+    plt.xlabel('DATE')
+    plt.ylabel('Number')
     plt.tight_layout()
     plt.show()
 
