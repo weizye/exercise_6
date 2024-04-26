@@ -94,8 +94,7 @@ def get_news_articles(keyword="covid", num_articles=10):
     return news_data
 
 # Call the function to fetch news articles
-scraped_data = get_news_articles("covid")
-article_links = get_news_articles("covid", num_articles=10)
+scraped_data = get_news_articles("covid", num_articles=10)
 
 # Print the scraped news data
 for data in scraped_data:
